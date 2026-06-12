@@ -1,0 +1,14 @@
+Ejercicios Exploratorios
+
+1. En un sistema basado en SysV, suponga que el nivel de ejecución predeterminado definido en
+/etc/inittab es 3, pero el sistema siempre comienza en el nivel de ejecución 1. ¿Cuál es la
+causa probable de eso?
+
+2. Aunque el archivo /sbin/init se puede encontrar en sistemas basados en systemd, es solo un
+enlace simbólico a otro archivo ejecutable. En tales sistemas, ¿cuál es el archivo señalado por
+/sbin/init?
+
+3. ¿Cómo se puede verificar el objetivo predeterminado del sistema (system_target) en un sistema
+basado en systemd?
+
+4. ¿Cómo se puede cancelar un reinicio del sistema programado con el comando shutdown?

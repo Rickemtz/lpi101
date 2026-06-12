@@ -1,0 +1,27 @@
+Ejercicios Exploratorios
+
+1. No es raro encontrar máquinas desactualizadas, obsoletas o mejor conocidas como legacy en
+entornos de producción, como cuando algunos equipos utilizan una conexión obsoleta para
+comunicarse con la computadora de control, por lo que es necesario prestar especial atención a
+algunas peculiaridades de estas máquinas más antiguas. Algunos servidores x86 con firmware
+BIOS más antiguo, por ejemplo, no se iniciarán si no se detecta un teclado.
+¿Cómo se puede evitar este problema en particular?
+
+2. Los sistemas operativos construidos alrededor del núcleo de Linux también están disponibles
+para una amplia variedad de arquitecturas de computadora que no sean x86, como en las
+computadoras de placa única basadas en la arquitectura ARM. Un usuario atento notará la
+ausencia del comando lspci en tales máquinas, como la Raspberry Pi.
+
+¿Qué diferencia con las máquinas x86 justifica esa ausencia?
+
+3. Muchos enrutadores de red tienen un puerto USB que permite las conexiones de un dispositivo
+externo, como un disco duro USB. Dado que la mayoría de estos utilizan un sistema operativo
+basado en Linux
+
+¿cómo se nombrará un disco duro USB externo en el directorio /dev/,suponiendo que no haya otro dispositivo de bloque convencional en el enrutador?
+
+4. En 2018, se descubrió la vulnerabilidad de dispositivos conocida como Meltdown. Afecta a casi
+todos los procesadores de muchas arquitecturas. Las versiones recientes del núcleo de Linux
+pueden informar si el sistema actual es vulnerable.
+
+¿Cómo se puede obtener esta información?

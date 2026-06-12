@@ -1,0 +1,27 @@
+Ejercicios Guiados
+
+1. Supongamos que un sistema operativo no puede iniciarse después de agregar un segundo disco
+SATA al sistema. Sabiendo que ninguno de los dispositivos está defectuoso, ¿cuál podría ser la
+posible causa de este error?
+
+2. Suponga que desea asegurarse de que la tarjeta de video externa conectada al bus PCI de su
+computadora de escritorio recién adquirida realmente sea la anunciada por el fabricante, pero
+al abrir el cajón de la computadora anularía la garantía. ¿Qué comando podría usarse para
+enumerar los detalles de la tarjeta de video, tal como fueron detectados por el sistema
+operativoi?
+
+3. La siguiente línea es parte de la salida generada por el comando lspci:
+
+03:00.0 RAID bus controller: LSI Logic / Symbios Logic MegaRAID SAS 2208 [Thunderbolt]
+(rev 05)
+
+¿Qué comando debe ejecutar para identificar el módulo del núcleo del sistema operativo en uso
+para este dispositivo específico?
+
+4. Un administrador del sistema quiere probar diferentes parámetros para el módulo del kernel
+bluetooth sin reiniciar el sistema. Sin embargo, cualquier intento de descargar el módulo con
+modprobe -r bluetooth da como resultado el siguiente error:
+
+modprobe: FATAL: Module bluetooth is in use.
+
+¿Cuál es la posible causa de este error?

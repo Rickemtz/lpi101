@@ -1,0 +1,18 @@
+Ejercicios Guiados
+
+1. En una máquina equipada con un firmware de BIOS, ¿dónde se encuentra el binario de arranque?
+
+2. El firmware UEFI admite funciones ampliadas proporcionadas por programas externos,
+llamadas aplicaciones EFI. Estas aplicaciones, sin embargo, tienen su propia ubicación especial.
+
+¿En qué parte del sistema se ubicarían las aplicaciones EFI?
+
+3. Los cargadores de arranque permiten pasar parámetros personalizados del kernel antes de
+cargarlo. Suponga que el sistema no puede iniciarse debido a una ubicación errónea del
+sistema de archivos raíz. ¿Cómo se le daría al kernel el sistema de archivos raíz correcto,
+ubicado en /dev/sda3?
+
+4. El proceso de arranque de una máquina Linux termina con el siguiente mensaje:
+ALERT! /dev/sda3 does not exist. Dropping to a shell!
+
+¿Cuál es la causa probable de este problema?

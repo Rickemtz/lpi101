@@ -1,0 +1,12 @@
+Ejercicios Guiados
+
+1. ¿Cómo podría usarse el comando telinit para reiniciar el sistema?
+
+2. ¿Qué pasará con los servicios relacionados con el archivo /etc/rc1.d/K90network cuando el
+sistema ingrese al nivel de ejecución 1?
+
+3. Usando el comando systemctl, ¿cómo podría un usuario verificar si la unidad sshd.service
+está funcionando?
+
+4. En un sistema basado en systemd, ¿qué comando debe ejecutarse para permitir la activación
+de la unidad sshd.service durante la inicialización del sistema?

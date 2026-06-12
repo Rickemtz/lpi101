@@ -1,0 +1,20 @@
+Ejercicios Exploratorios
+
+1. El gestor de arranque presentará una lista de sistemas operativos para elegir cuando se instala
+más de un sistema operativo en la máquina. Sin embargo, un sistema operativo recién
+instalado puede sobrescribir el MBR del disco duro, borrando la primera etapa del gestor de
+arranque y haciendo que el otro sistema operativo sea inaccesible. ¿Por qué esto no sucedería
+en una máquina equipada con un firmware UEFI?
+
+2. ¿Cuál es una consecuencia común de instalar un kernel personalizado sin proporcionar una
+imagen initramfs adecuada?
+
+3. El registro de inicialización tiene cientos de líneas, por lo que la salida del comando dmesg a
+menudo se canaliza a un método de lectura más ágil, como el comando less. ¿Qué opción
+dmesg paginará automáticamente su salida, eliminando la necesidad de usar un comando de
+paginación explícitamente?
+
+4. Un disco duro que contiene todo el sistema de archivos de una máquina desconectado se
+removió y se conectó a una máquina en funcionamiento como unidad secundaria. Suponiendo
+que su punto de montaje es /mnt/hd, ¿cómo se usaría journalctl para inspeccionar el
+contenido de los archivos de logs ubicados en /mnt/hd/var/log/journal/?
