@@ -1,0 +1,21 @@
+Ejercicios Guiados
+1. Divida los siguientes nombres de bibliotecas compartidas en sus partes:
+
+Nombre completo del archivo 	|	Nombre de la biblioteca 	|	so sufijo 	|	Número de versión	|
+linux-vdso.so.1			|					|			|				|
+libprocps.so.6			|					|			|				|
+libdl.so.2			|					|			|				|
+libc.so.6			|					|			|				|
+libsystemd.so.0			|					|			|				|
+ld-linux-x86-			|					|			|				|
+64.so.2				|					|			|				|
+_________________________________________________________________________________________________________________________________
+
+2. Ha desarrollado un software y desea agregar un nuevo directorio de biblioteca compartida a su
+sistema (/opt/lib/mylib). Escriba su ruta absoluta en un archivo llamado mylib.conf.
+
+◦ ¿En qué directorio debe almacenar este archivo?
+
+◦ ¿Qué comando debe ejecutar para que los cambios sean totalmente efectivos?
+
+3. ¿Qué comando usaría para listar las bibliotecas compartidas requeridas por kill?

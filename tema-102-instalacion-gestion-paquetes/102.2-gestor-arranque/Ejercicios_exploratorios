@@ -1,0 +1,32 @@
+Ejercicios Exploratorios
+
+1. Imagine un usuario que configura GRUB Legacy para arrancar desde la segunda partición del
+primer disco. Escribe la siguiente entrada de menú personalizada:
+
+title My Linux Distro
+root (hd0,2)
+kernel /vmlinuz root=/dev/hda1
+initrd /initrd.img
+
+Sin embargo, el sistema no se iniciará. ¿Qué está mal?
+
+2. Imagine que tiene un disco identificado como /dev/sda con múltiples particiones. ¿Qué
+comando se puede usar para averiguar cuál es la partición de arranque en un sistema?
+
+3. ¿Qué comando se puede usar para averiguar el UUID de una partición?
+
+4. Considere la siguiente entrada para GRUB 2
+
+menuentry "Default OS" {
+set root=(hd0,1)
+linux /vmlinuz root=/dev/sda1 ro quiet splash
+initrd /initrd.img
+}
+
+Cámbiela para que el sistema arranque desde un disco con el UUID 5dda0af3-c995-481a-a6f3-46dcd3b6998d
+
+5. ¿Cómo puede configurar GRUB 2 para que espere 10 segundos antes de iniciar la entrada de
+menú predeterminada?
+
+6. Desde una consola GRUB Legacy, ¿cuáles son los comandos para instalar GRUB en la primera
+partición del segundo disco?

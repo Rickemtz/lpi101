@@ -1,0 +1,9 @@
+Ejercicios Exploratorios
+
+1. ¿Cuál es la unidad más pequeña dentro de un grupo de volúmenes?
+
+2. ¿Cómo se define el tamaño de un volumen lógico?
+
+3. En un disco formateado con el esquema de partición MBR, ¿cuál es el ID de la partición del sistema EFI?
+
+4. Además de las particiones de intercambio, ¿cómo puede aumentar rápidamente el espacio de intercambio en un sistema Linux?

@@ -1,0 +1,10 @@
+Ejercicios Exploratorios
+
+1. objdump es una utilidad de línea de comandos que muestra información de archivos de 
+objetos. Compruebe si está instalado en su sistema con which objdump. Si no es así, instálelo.
+
+◦ Use objdump con -p (o --private-headers) y grep para imprimir las dependencias de glibc:
+
+◦ Use objdump con -p (o --private-headers) y grep para imprimir el soname de glibc:
+
+◦ Use objdump con -p (o --private-headers) y grep para imprimir las dependencias de Bash

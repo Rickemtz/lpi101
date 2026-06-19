@@ -1,0 +1,13 @@
+Ejercicios Exploratorios
+
+1. ¿Cómo usaría zypper para averiguar qué paquete posee el archivo /usr/sbin/swapon?
+
+2. ¿Cómo puede obtener una lista de todos los paquetes instalados en el sistema usando dnf?
+
+3. Usando dnf, ¿cuál es el comando para agregar un repositorio ubicado en
+
+https://www.example.url/home:reponame.repo al sistema?
+
+4. ¿Cómo puede usar zypper para verificar si el paquete unzip está instalado?
+
+5. Usando yum, descubra qué paquete proporciona el archivo /bin/wget

@@ -1,0 +1,9 @@
+Ejercicios Guiados
+
+1. En sistemas Linux, ¿dónde se almacenan los archivos para el gestor de arranque GRUB?
+
+2. ¿Dónde debe terminar la partición de arranque para garantizar que una PC siempre pueda cargar el kernel?
+
+3. ¿Dónde se suele montar la partición EFI?
+
+4. Al montar manualmente un sistema de archivos, ¿en qué directorio se debe montar normalmente?

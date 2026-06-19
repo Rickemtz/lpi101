@@ -1,0 +1,14 @@
+Ejercicios Exploratorios
+
+1. Considere un repositorio con paquetes fuente de Debian para la distribución xenial, alojado en http://us.archive.ubuntu.com/ubuntu/ y con paquetes para el componente universe.
+
+¿Cuál sería la línea correspondiente que se agregará a /etc/apt/sources.list?
+
+2. Mientras compila un programa, se encuentra con un mensaje de error indicándole que el archivo de cabecera zzip-io.h no está presente en su sistema. ¿Cómo puede averiguar qué 
+paquete proporciona ese archivo?
+
+3. ¿Cómo puede ignorar una advertencia de dependencia y eliminar un paquete usando dpkg, incluso si hay paquetes que dependen de él en el sistema?
+
+4. ¿Cómo puede obtener más información sobre un paquete llamado midori usando apt?
+
+5. Antes de instalar o actualizar paquetes con apt, ¿qué comando se debe usar para garantizar que el índice de paquetes esté actualizado?

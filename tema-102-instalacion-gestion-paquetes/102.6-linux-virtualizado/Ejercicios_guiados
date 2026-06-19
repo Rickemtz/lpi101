@@ -1,0 +1,8 @@
+Ejercicios Guiados\
+
+1. ¿Qué extensiones de CPU son necesarias en una plataforma de hardware basada en x86 que ejecutará invitados (guest) totalmente virtualizados?
+
+2. ¿Una instalación de un servidor de misión crítica que requerirá el rendimiento más rápido probablemente usará qué tipo de virtualización?
+
+3. Dos máquinas virtuales que se han clonado a partir de la misma plantilla y que utilizan D-Bus funcionan de manera irregular. 
+Ambos tienen nombres de host y configuraciones de red separadas. ¿Qué comando se usaría para determinar si cada una de las máquinas virtuales tienen diferentes ID de máquina D-Bus?

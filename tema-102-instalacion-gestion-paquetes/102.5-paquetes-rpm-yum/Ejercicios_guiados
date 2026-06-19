@@ -1,0 +1,11 @@
+Ejercicios Guiados
+
+1. Usando rpm en un sistema Red Hat Enterprise Linux, ¿cómo instalaría el paquete file-roller-3.28.1-2.el7.x86_64.rpm mostrando una barra de progreso durante la instalación?
+
+2. Usando rpm, descubra qué paquete contiene el archivo /etc/redhat-release.
+
+3. ¿Cómo usaría yum para buscar actualizaciones para todos los paquetes en el sistema?
+
+4. Usando zypper, ¿cómo deshabilitaría un repositorio llamado repo-extras?
+
+5. Si tiene un archivo .repo que describe un nuevo repositorio, ¿dónde se debe colocar este archivo para que DNF lo reconozca?

@@ -1,0 +1,11 @@
+Ejercicios Guiados
+
+1. ¿Cuál es el comando para instalar un paquete llamado package.deb usando dpkg?
+
+2. Usando dpkg-query, encuentre qué paquete contiene un archivo llamado 7zr.1.gz.
+
+3. ¿Puede eliminar un paquete llamado unzip del sistema usando dpkg -r unzip si el paquete file-roller depende de él? Si no, ¿cuál sería la forma correcta de hacerlo?
+
+4. Usando apt-file, ¿cómo puede averiguar qué paquete contiene el archivo unrar?
+
+5. Usando apt-cache, ¿cuál es el comando para mostrar información para el paquete gimp?
