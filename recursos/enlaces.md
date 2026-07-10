@@ -20,5 +20,4 @@
 
 
 ## Practica expresiones regulares
-
-- .[Didactic exercices](https://regexcrossword.com/)
+- .[Didactic exercices](https:/regexr.com/)
