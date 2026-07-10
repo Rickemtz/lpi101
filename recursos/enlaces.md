@@ -17,3 +17,8 @@
 ## Simulacros de Examen
 - [LPI Sample Questions](https://www.lpi.org/our-certifications/lpic-1-overview)
 - [Boson Practice Exams](https://www.boson.com/)
+
+
+## Practica expresiones regulares
+
+- .[Didactic exercices](https://regexcrossword.com/)
