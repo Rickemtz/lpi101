@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>examprep — LPIC-1 · banco de preguntas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="crt-glow" aria-hidden="true"></div>
+
+<div class="app-shell">
+
+  <!-- Terminal chrome header -->
+  <header class="term-bar">
+    <div class="term-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="term-path"><span id="termPath">~/examprep</span><span class="caret">▌</span></div>
+    <nav class="term-nav">
+      <button class="term-nav-btn" data-view="home" aria-current="page">inicio</button>
+      <button class="term-nav-btn" data-view="guia">guía</button>
+      <button class="term-nav-btn" data-view="examen-config">examen</button>
+      <button class="term-nav-btn" data-view="historial">historial</button>
+    </nav>
+  </header>
+
+  <main id="viewRoot" class="view-root">
+    <!-- Views are rendered here by app.js -->
+  </main>
+
+  <footer class="app-footer">
+    <span>banco local · <span id="footerCount">0</span> preguntas cargadas</span>
+    <span class="dot-sep">·</span>
+    <span>datos guardados solo en este navegador</span>
+  </footer>
+
+</div>
+
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
