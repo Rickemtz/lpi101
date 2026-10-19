@@ -75,8 +75,27 @@ Cada subtema contiene:
 
 ---
 
+## 🧪 Simulador de examen
+
+Abre `index.html` en el navegador (no necesita servidor). En la barra superior se elige el banco:
+
+| Examen | Banco | Preguntas | Fuente |
+|--------|-------|-----------|--------|
+| **101-500** | `questions.js` | 125 | `preguntas.txt` |
+| **102-500** | `questions-102.js` | 126 | `Examenes/102-500-preguntas-respuestas.md` |
+
+Cada examen guarda sus marcas e historial por separado en el navegador. Si editas el Markdown del 102-500, regenera el banco con:
+
+```bash
+node tools/md-a-questions-102.js Examenes/102-500-preguntas-respuestas.md questions-102.js
+cp questions-102.js examprep/
+```
+
+---
+
 ## 🔗 Recursos Oficiales
 
 - [LPI Exam 101 Objectives](https://www.lpi.org/our-certifications/exam-101-objectives)
+- [LPI Exam 102 Objectives](https://www.lpi.org/our-certifications/exam-102-objectives)
 - [Linux Documentation Project](https://tldp.org/)
 - [Man pages online](https://man7.org/linux/man-pages/)

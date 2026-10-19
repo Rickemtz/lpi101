@@ -1,24 +1,64 @@
 /* ============================================================
    examprep — lógica de la aplicación
-   Banco de preguntas: QUESTION_BANK (definido en questions.js)
+   Bancos de preguntas: QUESTION_BANK (questions.js, examen 101-500)
+   y QUESTION_BANK_102 (questions-102.js, examen 102-500)
    ============================================================ */
 
 (function () {
   "use strict";
 
-  const TOTAL_QUESTIONS = QUESTION_BANK.length;
+  // Cada examen guarda sus marcas e historial por separado.
+  // Las claves del 101 se conservan para no perder el progreso existente.
+  const BANKS = {
+    "101": { label: "101-500", questions: QUESTION_BANK, lsPrefix: "examprep" },
+    "102": { label: "102-500", questions: typeof QUESTION_BANK_102 !== "undefined" ? QUESTION_BANK_102 : [], lsPrefix: "examprep_102" },
+  };
+  const LS_EXAM = "examprep_exam_v1";
+
+  function pickExam() {
+    const fromUrl = new URLSearchParams(location.search).get("examen");
+    if (fromUrl && BANKS[fromUrl]) return fromUrl;
+    try {
+      const saved = localStorage.getItem(LS_EXAM);
+      if (saved && BANKS[saved]) return saved;
+    } catch (e) { /* almacenamiento no disponible */ }
+    return "101";
+  }
+
+  const EXAM = pickExam();
+  const EXAM_LABEL = BANKS[EXAM].label;
+  const BANK = BANKS[EXAM].questions;
+
+  const TOTAL_QUESTIONS = BANK.length;
   const DEFAULT_EXAM_SIZE = Math.min(60, TOTAL_QUESTIONS);
   const PASS_THRESHOLD = 0.70; // referencia informativa, no oficial
 
-  const LS_MARKED = "examprep_marked_v1";
-  const LS_HISTORY = "examprep_history_v1";
+  const LS_MARKED = BANKS[EXAM].lsPrefix + "_marked_v1";
+  const LS_HISTORY = BANKS[EXAM].lsPrefix + "_history_v1";
 
   const viewRoot = document.getElementById("viewRoot");
   const termPath = document.getElementById("termPath");
   const footerCount = document.getElementById("footerCount");
+  const footerExam = document.getElementById("footerExam");
   const navButtons = document.querySelectorAll(".term-nav-btn");
+  const examButtons = document.querySelectorAll(".exam-switch-btn");
 
   footerCount.textContent = TOTAL_QUESTIONS;
+  if (footerExam) footerExam.textContent = EXAM_LABEL;
+  document.title = `examprep — LPIC-1 ${EXAM_LABEL} · banco de preguntas`;
+
+  examButtons.forEach((btn) => {
+    const exam = btn.dataset.exam;
+    if (exam === EXAM) btn.setAttribute("aria-pressed", "true");
+    btn.addEventListener("click", () => {
+      if (exam === EXAM) return;
+      if (state.exam && !confirm("Hay un examen en curso. ¿Cambiar de banco y perder el progreso de este intento?")) return;
+      try { localStorage.setItem(LS_EXAM, exam); } catch (e) { /* almacenamiento no disponible */ }
+      const params = new URLSearchParams(location.search);
+      params.set("examen", exam);
+      location.search = params.toString();
+    });
+  });
 
   /* ---------------- persistence helpers ---------------- */
 
@@ -134,15 +174,16 @@
       if (active) btn.setAttribute("aria-current", "page");
       else btn.removeAttribute("aria-current");
     });
+    const base = `~/examprep/${EXAM_LABEL}`;
     const pathMap = {
-      home: "~/examprep",
-      guia: "~/examprep/guia-completa",
-      "examen-config": "~/examprep/examen",
-      "examen-run": "~/examprep/examen --en-curso",
-      "examen-resultados": "~/examprep/examen/resultados",
-      historial: "~/examprep/historial",
+      home: base,
+      guia: `${base}/guia-completa`,
+      "examen-config": `${base}/examen`,
+      "examen-run": `${base}/examen --en-curso`,
+      "examen-resultados": `${base}/examen/resultados`,
+      historial: `${base}/historial`,
     };
-    termPath.textContent = pathMap[state.view] || "~/examprep";
+    termPath.textContent = pathMap[state.view] || base;
   }
 
   /* ============================================================
@@ -156,7 +197,7 @@
 
     viewRoot.innerHTML = `
       <section class="hero">
-        <div class="hero-eyebrow">banco de preguntas listo · ${TOTAL_QUESTIONS} preguntas</div>
+        <div class="hero-eyebrow">LPIC-1 ${EXAM_LABEL} · banco de preguntas listo · ${TOTAL_QUESTIONS} preguntas</div>
         <h1>Prepara tu examen <span class="accent">línea por línea</span>.</h1>
         <p>Repasa las ${TOTAL_QUESTIONS} preguntas del temario a tu ritmo, o simula un examen aleatorio de ${DEFAULT_EXAM_SIZE} preguntas con corrección y explicación al final.</p>
       </section>
@@ -210,7 +251,7 @@
   function renderGuia() {
     const { query, filter } = state.guia;
 
-    let list = QUESTION_BANK;
+    let list = BANK;
     if (filter === "marked") list = list.filter((q) => state.marked.has(q.id));
     list = list.filter((q) => questionMatchesQuery(q, query));
 
@@ -299,7 +340,7 @@
         <button class="q-card-head" data-id="${q.id}">
           <span class="q-num">#${q.id}</span>
           <span class="q-text">
-            ${escapeHtml(q.question)}
+            <span class="pre-line">${escapeHtml(q.question)}</span>
             ${fill ? '<span class="badge" style="margin-left:8px;">rellenar</span>' : ""}
             ${multi ? `<span class="badge badge-multi" style="margin-left:8px;">elegir ${q.answer.length}</span>` : ""}
           </span>
@@ -317,7 +358,7 @@
 
   function renderExamenConfig() {
     const cfg = state.examConfig;
-    const pool = cfg.scope === "marked" ? [...state.marked] : QUESTION_BANK.map((q) => q.id);
+    const pool = cfg.scope === "marked" ? [...state.marked] : BANK.map((q) => q.id);
     const maxAvailable = cfg.scope === "marked" ? state.marked.size : TOTAL_QUESTIONS;
 
     if (cfg.size > maxAvailable) cfg.size = Math.max(1, maxAvailable);
@@ -376,7 +417,7 @@
 
   function startExam() {
     const cfg = state.examConfig;
-    const pool = cfg.scope === "marked" ? QUESTION_BANK.filter((q) => state.marked.has(q.id)) : QUESTION_BANK;
+    const pool = cfg.scope === "marked" ? BANK.filter((q) => state.marked.has(q.id)) : BANK;
     const selected = shuffle(pool).slice(0, Math.min(cfg.size, pool.length));
 
     state.exam = {
@@ -494,7 +535,9 @@
   function gradeQuestion(q, userAnswer) {
     if (isFillBlank(q)) {
       const given = typeof userAnswer === "string" ? userAnswer : "";
-      return normalize(given) === normalize(q.answer) && given.trim() !== "";
+      // una barra final en rutas de directorio es opcional: /etc/cups y /etc/cups/ valen igual
+      const clean = (str) => normalize(str).replace(/(.)\/+$/, "$1");
+      return clean(given) === clean(q.answer) && given.trim() !== "";
     }
     const correctSet = new Set(q.answer.split(""));
     const givenSet = userAnswer instanceof Set ? userAnswer : new Set();
@@ -604,7 +647,7 @@
         <div class="result-row-head" style="cursor:pointer;">
           <span class="badge ${correct ? "badge-success" : "badge-danger"}">${correct ? "✓" : "✕"}</span>
           <div style="flex:1;">
-            <div><strong>#${q.id}</strong> ${escapeHtml(q.question)}</div>
+            <div><strong>#${q.id}</strong> <span class="pre-line">${escapeHtml(q.question)}</span></div>
             ${!correct ? `<div class="yr-answer">Tu respuesta: ${describeUserAnswer(q, userAnswer)}</div>` : ""}
             ${!correct ? `<div class="correct-answer">Respuesta correcta: ${describeCorrectAnswer(q)}</div>` : ""}
           </div>

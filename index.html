@@ -18,6 +18,10 @@
   <header class="term-bar">
     <div class="term-dots" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="term-path"><span id="termPath">~/examprep</span><span class="caret">▌</span></div>
+    <div class="exam-switch" role="group" aria-label="Examen">
+      <button class="exam-switch-btn" data-exam="101" aria-pressed="false">101-500</button>
+      <button class="exam-switch-btn" data-exam="102" aria-pressed="false">102-500</button>
+    </div>
     <nav class="term-nav">
       <button class="term-nav-btn" data-view="home" aria-current="page">inicio</button>
       <button class="term-nav-btn" data-view="guia">guía</button>
@@ -31,7 +35,7 @@
   </main>
 
   <footer class="app-footer">
-    <span>banco local · <span id="footerCount">0</span> preguntas cargadas</span>
+    <span>banco <span id="footerExam">101-500</span> · <span id="footerCount">0</span> preguntas cargadas</span>
     <span class="dot-sep">·</span>
     <span>datos guardados solo en este navegador</span>
   </footer>
@@ -39,6 +43,7 @@
 </div>
 
 <script src="questions.js"></script>
+<script src="questions-102.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

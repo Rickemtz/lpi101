@@ -13,8 +13,18 @@ QUÉ INCLUYE
 - index.html    -> estructura de la página
 - styles.css    -> diseño visual (estética de "terminal")
 - app.js        -> toda la lógica de la aplicación
-- questions.js  -> el banco de preguntas, ya convertido a datos
+- questions.js  -> el banco de preguntas del examen 101-500
                    (generado a partir de tu archivo preguntas.txt)
+- questions-102.js -> el banco de preguntas del examen 102-500
+                   (generado desde Examenes/102-500-preguntas-respuestas.md
+                   con tools/md-a-questions-102.js)
+
+DOS EXÁMENES
+------------
+En la barra superior hay un selector "101-500 / 102-500" para
+cambiar de banco. Cada examen guarda sus preguntas marcadas y su
+historial por separado. También puedes abrir directamente uno u
+otro con index.html?examen=101 o index.html?examen=102.
 
 NOTA SOBRE LA CANTIDAD DE PREGUNTAS
 ------------------------------------
